@@ -13,7 +13,7 @@ Node.js is a **cross-platform, open-source JavaScript runtime environment** that
 ## some engines bases on browsers-
 - V8 (from google chrome)
 - Spider monkey (from firefrox)
-
+- chakra -microsoft(edge or internet explorer)
 ## 📜 History
 - Created by **Ryan Dahl in 2009**.
 - JavaScript requires a **JS engine** to run, and Node.js initially used **Spider Monkey** (from Mozilla Firefox) but later switched to **V8** (from Google Chrome).
@@ -46,7 +46,7 @@ Ryan Dahl saw the limitations and introduced **non-blocking servers** with Node.
 ### 🔄 Leadership Transition (2012)
 - In **2012**, **Ryan Dahl stepped away** from Node.js.
 - **Isaac Schlueter** took over leadership and focused on **expanding Node.js**.
-- Isaac was the **sole creator of NPM**, which he developed in **2011** to streamline package management for Node.js.
+- Isaac was the **sole creator of NPM**, which he developed in **2010** to streamline package management for Node.js.
 
 ### ⚡ The Emergence of io.js (2014)
 - As Isaac managed Node.js, **development slowed down** due to various complexities.
@@ -66,19 +66,30 @@ Ryan Dahl saw the limitations and introduced **non-blocking servers** with Node.
 
 - The **OpenJS Foundation** was established in **2019** through the **merger** of the **Node.js Foundation** and the **JS Foundation**. It serves as a **neutral hub** for open-source JavaScript projects, ensuring their growth and sustainability.
 
-## Mission
-- Support **open-source JavaScript projects** with governance and infrastructure.
-- Provide resources to help developers **collaborate and innovate**.
-- Foster an **inclusive and sustainable** JavaScript ecosystem.
+  ## Mission
+  - Support **open-source JavaScript projects** with governance and infrastructure.
+  - Provide resources to help developers **collaborate and innovate**.
+  - Foster an **inclusive and sustainable** JavaScript ecosystem.
 
-## Hosted Projects
-The OpenJS Foundation **supports** numerous key JavaScript projects, including:
-- [**Node.js**](https://nodejs.org)
-- [**jQuery**](https://jquery.com)
-- [**Appium**](https://appium.io)
-- [**Webpack**](https://webpack.js.org)
-- [**Dojo**](https://dojo.io)
-- And many more!
+  ## Hosted Projects
+  The OpenJS Foundation **supports** numerous key JavaScript projects, including:
+  - [**Node.js**](https://nodejs.org)
+  - [**jQuery**](https://jquery.com)
+  - [**Appium**](https://appium.io)
+  - [**Webpack**](https://webpack.js.org)
+  - [**Dojo**](https://dojo.io)
+  - And many more!
 
-## Node.js & OpenJS Foundation
-The OpenJS Foundation provides **stability and governance** for **Node.js**, but the project remains **open-source and community-driven**. Global contributors help shape its direction, ensuring its continued innovation.
+  ## Node.js & OpenJS Foundation
+  The OpenJS Foundation provides **stability and governance** for **Node.js**, but the project remains **open-source and community-driven**. Global contributors help shape its direction, ensuring its continued innovation.
+
+## V8 Engine
+- [V8](https://v8.dev/) is Google’s open source high-performance JavaScript and WebAssembly engine, written in C++.
+- It is used in Chrome and in Node.js, among others.
+- It implements ECMAScript and WebAssembly, and runs on Windows, macOS, and Linux systems that use x64, IA-32, or ARM processors.
+- V8 can be embedded into any C++ application.
+
+## Relationship between Node.js and V8
+- Node.js is a C++ application with the V8 engine embedded into it.
+- V8 is the JavaScript engine which follows the ECMAScript standard.
+- Node.js has some superpowers to run code with the V8 engine, which is called the "JavaScript runtime".
