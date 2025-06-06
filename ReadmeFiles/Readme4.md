@@ -123,7 +123,7 @@ console.log(mathUtils.add(5, 3));  // Output: 8
 ```
 
 
-## JavaScript Execution Modes
+## JavaScript Execution Modes--------------------
 
 ### Strict Mode vs Non-Strict Mode
 
@@ -171,7 +171,7 @@ function sum(a, b, c) { return a + b + c; }
 
 ## Important Notes About module.exports
 
-> ⚠️ **Key Concept**: `module.exports` is initially an empty object that serves as the export container for your module.
+> ⚠️ **Key Concept**: `module.exports` is initially an empty object "{}" that serves as the export container for your module.
 
 ### How module.exports Works
 

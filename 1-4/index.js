@@ -22,3 +22,5 @@ globalThis.setTimeout(() => {
 
 
 // console.log("globalThis", globalThis===global);//true
+
+// require(""); 
