@@ -133,4 +133,4 @@ console.log(myModule.privateVar);       // undefined
 
 
 
-Notes - use "?" + "." keys from keyboard to open vs code on giythub
+Notes - use "?" + "." keys from keyboard to open vs code on/from github
