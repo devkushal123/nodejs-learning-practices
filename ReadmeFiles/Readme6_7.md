@@ -10,9 +10,9 @@ In this episode, we will make understanding about -
 - JS ---> synchronous single threaded language.
     - here synchronous means blocking way
     - So, the code will execute serially one by one one after the other
-    - JS is simple it is just using single thread to excute and run the code.
-    - But in other languages they run some peice of code with on ethread and other piece of code with other thread to run parallel.
-    - JavaScript is a synchronous, single-threaded language, meaning there is only one thread in which the JavaScript engine (such as the V8 engine) runs. In JavaScript, code is executed line by line within this single thread
+    - JS is simple it is just using single thread to excute and run the code line by line.
+    - But in other languages they run some peice of code with on a thread and other piece of code with another thread to run parallel.
+    - JavaScript is a synchronous, single-threaded language, meaning there is only one single thread, in which the JavaScript engine (such as the V8 engine) runs. In JavaScript, code is executed line by line with this single thread
 
 - Node.js - making JS asynchronous to execute code non-blocking/parallel with a single thread itself.
 
@@ -35,7 +35,7 @@ var c = multiply(a, b);
 fisrt a will be exceuted and store inside the memory 
 then same for b
 then function 
-the it will read c and check c having function call, so whenever function call so, in this case, it will create a sperate execution context
+then it will read c and check c having function call, so whenever function call, in this case, it will create a sperate execution context
 for multiply function and 
 it will store function excution context inside callstack.
 
@@ -50,18 +50,40 @@ time, tide n js waits for none.
 - so, nodejs works like code goes to v8 engine if code is sync it is fine executed as it is like synchrounous.
 if code is async so to execute that nodejs gives power to v8 engine to use libuv library to execute the code async way.
 
-- Whenever js code executed by v8 and v8 engine see there is an api call, file read operation and settimeout so, v8 engine "offload the code to libuv" and libuv manages and executes it.
+![Note] - Whenever js code executed by v8 and v8 engine see there is an api call, file read operation and settimeout so, v8 engine "offload the code to libuv" and libuv manages and executes it.
 
 
 ### lets understand mix of sync and async code---
-C:\kohler.com\otherFilesFor_practice\nodejs-learning-practices\6\mix_sync_async.js
+C:\kohler.com\otherFilesFor_practice\nodejs-learning-practices\6_7\mix_sync_async.js
 
-in theis code example --
-- libuv resposible to make file system call and get back the data and once it has the data give it to v8 engine and v8 engine will create execution context to execute that function data for file read and once execute execute context will be removed and stack will be empty
+in this code example --
+- libuv resposible to make file system call and get back the data and once it has the data give it to v8 engine and v8 engine will create execution context to execute that function data for file read and once execute, execution context will be removed and stack will be empty
 
 - so, nodejs is async and v8 is sync.
-- nodejs is async I/O (non-blocking ) bcs its is not bloacking main thread 
+- nodejs is async I/O (non-blocking ) bcs its is not blocking main thread 
 - ***nodejs is non-block i/o using v8 engine.
 
 
-<!-- episode 7 need to start -->
+
+<!-------------------------- episode 7 need to start -->
+
+- sync function will block the main thread - dont use it.
+example - C:\kohler.com\otherFilesFor_practice\nodejs-learning-practices\6_7\blocking.js
+
+
+- so js execute code for settimeout libuv cxan only get the callback of settimeout once the callstack is empty
+example - C:\kohler.com\otherFilesFor_practice\nodejs-learning-practices\6_7\setTimeoutZero.js
+that's y we have trust issue with settimeout
+- so, settimeout coming with some term and condition , it will run only when the main thread is empty or free with call stack 
+- Settimeout will called once callstack of main thread is empty
+
+
+<!-- covered item -->
+- sync code
+- async code
+- blocking sync code
+- setTimeout(cbfn, O)
+- non-blocking I/O
+- main thread
+- Asynchronous I/O
+- Liveuv github 
