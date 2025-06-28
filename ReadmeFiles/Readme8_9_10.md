@@ -71,3 +71,51 @@ So, if exist so first it will ececute this and then each phases.
     C:\kohler.com\otherFilesFor_practice\nodejs-learning-practices\6_7_8_9\libuv_eventloop9.2.js
     - ******** event loop wait on pooll phase n then it got to check phase it will not start again from timer phase 
     - so, first setimmidiate will execute then timer
+
+
+<!-------------------------------------- Episode-10 | Thread pool in libuv : ---------------------------------->
+- Understand the thread pool mechanism in libuv and how it enhances NodeJS's ability to handle multiple tasks. 
+- This video covers how the thread pool works, its role in asynchronous operations, and how it helps NodeJS manage CPU-bound and I/O-bound tasks efficiently.
+
+### tick
+- one eventloop cycyle is known as tick
+
+### thread pool
+- there is some more phase in between timer and poll phase in eventloop - is "idle, prepare"
+- UV_Threadpool_size is 4 by default.
+- ******* some modules using thread pool - fs(file reading operations), dns.lookup, crypto, some user specificied input
+- threadpool is allocated by UV and UV is manging threadpool and its having 4 threads size.
+
+### nodejs is multi-threaded or single threaded?
+- if u are giving a synchronous code then nodejs is single threaded.
+- if we have code which is asynchrnous the it can be multi threaded, if we have some heavy task to perform so libuv uses threadpool thread.
+- ****example is showing how libuv uses 4 threads of threadpool -
+        C:\kohler.com\otherFilesFor_practice\nodejs-learning-practices\6_7_8_9_10\threadpool_10.js
+- thread pool size is 4 bi-default.
+- But we can chnage it if needed using variable name "process.env.UV_THREADPOOL_SIZE".
+
+### libuv
+- epoll (linux)
+- kqueue(MacOs)
+- scalable i/o event notification mechnism
+
+- epoll descriptor is the collection of all socket descriptor
+- epoll can handle multiple socket connections
+
+hardware -> kernal -> processes
+- suppose there are multiple requests coming in ===>  epooll will manage it ==> once there is any activity in one of these connections ==> so, epoll will notify libuv ===> and then libuv will handle things with threadpool
+
+
+<!-- home work : read about--- -->
+
+1. epoll
+2. kqueue
+3. fds socket descriptors
+4. event emmitters
+5. streams and buffers
+6. pipes
+
+timer queues uses min-heap tree
+epoll - red black tree
+
+naming is very important - (process.nexttick vs setimmidiate)
